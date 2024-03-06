@@ -85,6 +85,8 @@ struct ContentView: View {
                 self.latestRun = latestRun
 
                 await updateStatus(nil)
+
+                try FileManager.default.removeItem(at: url)
             } catch {
                 await updateStatus("Error: \(error.localizedDescription)")
             }
