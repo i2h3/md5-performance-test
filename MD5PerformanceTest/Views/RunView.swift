@@ -14,12 +14,6 @@ struct RunView: View {
         return formatter
     }()
 
-    let dateComponentsFormatter: DateComponentsFormatter = {
-        let formatter = DateComponentsFormatter()
-        formatter.unitsStyle = .abbreviated
-        return formatter
-    }()
-
     let run: Run
 
     var body: some View {
@@ -46,7 +40,7 @@ struct RunView: View {
                 Text("Duration")
                     .foregroundStyle(.secondary)
                 Spacer()
-                Text(dateComponentsFormatter.string(from: run.duration) ?? "nil")
+                Text("\(String(format: "%.1f", run.duration)) s")
             }
         }.navigationTitle("Run Details")
     }
